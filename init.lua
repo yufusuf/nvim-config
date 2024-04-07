@@ -551,6 +551,16 @@ local servers = {
       -- diagnostics = { disable = { 'missing-fields' } },
     },
   },
+  pylsp = {
+    pylsp = {
+      plugins = {
+        pycodestyle = {
+          ignore = { 'W191', 'E101' },
+          maxLineLength = 120
+        }
+      }
+    }
+  },
 }
 
 -- Setup neovim lua configuration
@@ -615,6 +625,11 @@ cmp.setup {
 vim.cmd([[highlight GitSignsAdd guibg=NONE]])
 vim.cmd([[highlight GitSignsChange guibg=NONE]])
 vim.cmd([[highlight GitSignsDelete guibg=NONE]])
+vim.opt.rnu = true
+vim.opt.guicursor = ""
+
+require('luasnip').filetype_extend("javascript", { "javascriptreact" })
+require('luasnip').filetype_extend("javascript", { "html" })
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
