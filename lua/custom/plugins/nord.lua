@@ -8,7 +8,7 @@ return {
                 transparent = true,
                 errors = { mode = "bg" }
             })
-            vim.cmd.colorscheme("nord")
+            -- vim.cmd.colorscheme("nord")
         end,
     },
 };

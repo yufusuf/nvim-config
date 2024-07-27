@@ -167,7 +167,7 @@ require('lazy').setup({
     opts = {
       options = {
         icons_enabled = false,
-        theme = 'nord',
+        --theme = 'nord',
         component_separators = '|',
         section_separators = '',
       },
@@ -555,14 +555,18 @@ local servers = {
     pylsp = {
       plugins = {
         pycodestyle = {
-          ignore = { 'W191', 'E101' },
-          maxLineLength = 120
-        }
+          enabled = false,
+        },
+        pyflakes = {
+          enabled = false,
+        },
+        flake8 = {
+          enabled = false,
+        },
       }
     }
   },
 }
-
 -- Setup neovim lua configuration
 require('neodev').setup()
 
