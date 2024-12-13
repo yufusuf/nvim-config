@@ -313,7 +313,8 @@ vim.o.mouse = 'a'
 -- Sync clipboard between OS and Neovim.
 --  Remove this option if you want your OS clipboard to remain independent.
 --  See `:help 'clipboard'`
-vim.o.clipboard = 'unnamedplus'
+--vim.o.clipboard = 'unnamedplus'
+vim.keymap.set('v', '<C-c>', "\"+y")
 
 -- Enable break indent
 vim.o.breakindent = true
@@ -518,21 +519,21 @@ local servers = {
       -- diagnostics = { disable = { 'missing-fields' } },
     },
   },
-  pylsp = {
-    pylsp = {
-      plugins = {
-        pycodestyle = {
-          enabled = false,
-        },
-        pyflakes = {
-          enabled = false,
-        },
-        flake8 = {
-          enabled = false,
-        },
-      }
-    }
-  },
+  -- pylsp = {
+  --   pylsp = {
+  --     plugins = {
+  --       -- pycodestyle = {
+  --       --   enabled = false,
+  --       -- },
+  --       -- pyflakes = {
+  --       --   enabled = false,
+  --       -- },
+  --       -- flake8 = {
+  --       --   enabled = false,
+  --       -- },
+  --     }
+  --   }
+  -- },
 }
 -- Setup neovim lua configuration
 require('neodev').setup()
