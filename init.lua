@@ -519,21 +519,15 @@ local servers = {
       -- diagnostics = { disable = { 'missing-fields' } },
     },
   },
-  -- pylsp = {
-  --   pylsp = {
-  --     plugins = {
-  --       -- pycodestyle = {
-  --       --   enabled = false,
-  --       -- },
-  --       -- pyflakes = {
-  --       --   enabled = false,
-  --       -- },
-  --       -- flake8 = {
-  --       --   enabled = false,
-  --       -- },
-  --     }
-  --   }
-  -- },
+  pylsp = {
+    pylsp = {
+      plugins = {
+        pycodestyle = {
+          ignore = { 'E501' }
+        },
+      }
+    }
+  },
 }
 -- Setup neovim lua configuration
 require('neodev').setup()
@@ -564,6 +558,8 @@ mason_lspconfig.setup_handlers {
 -- See `:help cmp`
 local cmp = require 'cmp'
 local luasnip = require 'luasnip'
+vim.keymap.set({ "i", "s" }, "<C-L>", function() luasnip.jump(1) end, { silent = true })
+vim.keymap.set({ "i", "s" }, "<C-H>", function() luasnip.jump(-1) end, { silent = true })
 require('luasnip.loaders.from_vscode').lazy_load()
 luasnip.config.setup {}
 
@@ -581,9 +577,9 @@ cmp.setup {
     ['<C-p>'] = cmp.mapping.select_prev_item(),
     ['<C-b>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
-    ['<C-Space>'] = cmp.mapping.complete {},
+    -- ['<C-Space>'] = cmp.mapping.confirm {},
     ['<Tab>'] = cmp.mapping.confirm {
-      behavior = cmp.ConfirmBehavior.Replace,
+      behavior = cmp.ConfirmBehavior.Insert,
       select = true,
     },
   },
