@@ -313,7 +313,7 @@ vim.o.mouse = 'a'
 -- Sync clipboard between OS and Neovim.
 --  Remove this option if you want your OS clipboard to remain independent.
 --  See `:help 'clipboard'`
---vim.o.clipboard = 'unnamedplus'
+vim.o.clipboard = 'unnamedplus'
 vim.keymap.set('v', '<C-c>', "\"+y")
 
 -- Enable break indent
@@ -590,9 +590,9 @@ cmp.setup {
   },
 }
 -- vim.opt.cmdheight = 0
-vim.cmd([[highlight GitSignsAdd guibg=NONE]])
-vim.cmd([[highlight GitSignsChange guibg=NONE]])
-vim.cmd([[highlight GitSignsDelete guibg=NONE]])
+-- vim.cmd([[highlight GitSignsAdd guibg=NONE]])
+-- vim.cmd([[highlight GitSignsChange guibg=NONE]])
+-- vim.cmd([[highlight GitSignsDelete guibg=NONE]])
 vim.opt.rnu = true
 vim.opt.guicursor = ""
 

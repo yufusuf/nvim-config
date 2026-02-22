@@ -3,8 +3,8 @@ return {
   name = 'gruvbox',
   config = function()
     require('gruvbox').setup({
-      transparent_mode = true
+      transparent_mode = false
     })
-    vim.cmd.colorscheme('gruvbox')
+    -- vim.cmd.colorscheme('gruvbox')
   end,
 }
